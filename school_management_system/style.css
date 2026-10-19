@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    min-height: 100vh;
+    width: 100%;
+
+    background:
+        linear-gradient(
+            rgba(4, 9, 30, 0.7),
+            rgba(4, 9, 30, 0.7)
+        ),
+        url("images/bgg.png");
+
+    background-position: center;
+    background-size: cover;
+
+    position: relative;
+}
+
+nav {
+    display: flex;
+
+    padding: 2% 6%;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    width: 90px;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links ul li {
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.nav-links ul li::after {
+    content: "";
+
+    width: 0%;
+    height: 2px;
+
+    background: #f44366;
+
+    display: block;
+
+    margin: auto;
+
+    transition: 0.4s;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+.text-box {
+    width: 90%;
+
+    color: white;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+.text-box h1 {
+    font-size: 55px;
+
+    margin-bottom: 20px;
+}
+
+.text-box p {
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: white;
+
+    border: 1px solid white;
+
+    padding: 12px 30px;
+
+    font-size: 14px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.hero-btn:hover {
+    background: #f44366;
+
+    border-color: #f44366;
+}
+
+
+/* ABOUT / COURSES */
+
+.Courses {
+    width: 80%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.Courses h1,
+.campus h1,
+.facilities h1 {
+    font-size: 36px;
+
+    margin-bottom: 15px;
+
+    color: #1e3a8a;
+}
+
+.Courses > p,
+.campus > p,
+.facilities > p {
+    color: #666;
+
+    line-height: 1.7;
+
+    margin-bottom: 40px;
+}
+
+.row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.course-col {
+    flex: 1;
+
+    background: #f5f5f5;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    transition: 0.4s;
+}
+
+.course-col h3 {
+    color: #1e3a8a;
+
+    margin-bottom: 15px;
+}
+
+.course-col p {
+    color: #666;
+
+    line-height: 1.6;
+}
+
+.course-col:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* CAMPUS */
+
+.campus {
+    width: 80%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 70px 0;
+}
+
+.campus-col {
+    flex-basis: 100%;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.campus-col img {
+    width: 100%;
+
+    display: block;
+}
+
+.layer {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    background: rgba(0, 0, 0, 0.3);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.layer h3 {
+    color: white;
+
+    font-size: 35px;
+}
+
+
+/* FACILITIES */
+
+.facilities {
+    width: 80%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 70px 0;
+}
+
+.facilities-col {
+    flex: 1;
+
+    text-align: left;
+}
+
+.facilities-col img {
+    width: 100%;
+
+    border-radius: 10px;
+}
+
+.facilities-col h3 {
+    color: #1e3a8a;
+
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.facilities-col p {
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 20px;
+    }
+
+    nav img {
+        width: 65px;
+    }
+
+    .nav-links ul li {
+        display: block;
+
+        padding: 8px;
+    }
+
+    .nav-links ul li a {
+        font-size: 11px;
+    }
+
+    .text-box h1 {
+        font-size: 35px;
+    }
+
+    .text-box p {
+        font-size: 16px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .Courses,
+    .campus,
+    .facilities {
+        width: 90%;
+    }
+}
+

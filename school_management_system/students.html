@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management</title>
+
+    <link rel="stylesheet" href="student-style.css">
+
+</head>
+
+<body>
+
+
+<script>
+
+    if (localStorage.getItem("loggedIn") !== "true") {
+
+        window.location.href = "login.html";
+
+    }
+
+</script>
+
+
+<header class="student-nav">
+
+    <div class="logo-area">
+
+        <img src="images/klogo.png" alt="School Logo">
+
+        <h2>Student Management</h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="students.html">Students</a>
+
+        <span id="userInfo"></span>
+
+        <button id="logoutBtn">
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="student-container">
+
+    <section class="student-title">
+
+        <h1>Student Management System</h1>
+
+        <p>
+            Manage student information, enrollment,
+            academic status, and subjects.
+        </p>
+
+    </section>
+
+
+
+    <section class="student-form-section">
+
+        <h2>Add / Edit Student</h2>
+
+        <form id="studentForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label for="studentId">
+                        Student ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentId"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label for="studentName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label for="course">
+                        Course
+                    </label>
+
+                    <select id="course" required>
+
+                        <option value="">
+                            Select Course
+                        </option>
+
+                        <option value="BSIT">
+                            BSIT
+                        </option>
+
+                        <option value="BSCS">
+                            BSCS
+                        </option>
+
+                        <option value="BSBA">
+                            BSBA
+                        </option>
+
+                        <option value="BSED">
+                            BSED
+                        </option>
+
+                        <option value="BEED">
+                            BEED
+                        </option>
+
+                        <option value="BSHM">
+                            BSHM
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="yearLevel">
+                        Year Level
+                    </label>
+
+                    <select id="yearLevel" required>
+
+                        <option value="">
+                            Select Year
+                        </option>
+
+                        <option value="1st Year">
+                            1st Year
+                        </option>
+
+                        <option value="2nd Year">
+                            2nd Year
+                        </option>
+
+                        <option value="3rd Year">
+                            3rd Year
+                        </option>
+
+                        <option value="4th Year">
+                            4th Year
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="contact">
+                        Contact Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="contact"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label for="academicStatus">
+                        Academic Status
+                    </label>
+
+                    <select id="academicStatus" required>
+
+                        <option value="">
+                            Select Status
+                        </option>
+
+                        <option value="Regular">
+                            Regular
+                        </option>
+
+                        <option value="Irregular">
+                            Irregular
+                        </option>
+
+                        <option value="Probation">
+                            Probation
+                        </option>
+
+                        <option value="Graduating">
+                            Graduating
+                        </option>
+
+                        <option value="Dropped">
+                            Dropped
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="subject">
+                        Subject Enrolled
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label for="units">
+                        Number of Units
+                    </label>
+
+                    <input
+                        type="number"
+                        id="units"
+                        min="1"
+                        max="30"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="form-buttons">
+
+                <button
+                    type="submit"
+                    id="submitBtn"
+                >
+                    Add Student
+                </button>
+
+                <button
+                    type="button"
+                    id="clearBtn"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+  
+
+    <section class="filter-section">
+
+        <h2>Search Students</h2>
+
+        <div class="filter-grid">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by ID or name..."
+            >
+
+
+            <select id="courseFilter">
+
+                <option value="">
+                    All Courses
+                </option>
+
+                <option value="BSIT">
+                    BSIT
+                </option>
+
+                <option value="BSCS">
+                    BSCS
+                </option>
+
+                <option value="BSBA">
+                    BSBA
+                </option>
+
+                <option value="BSED">
+                    BSED
+                </option>
+
+                <option value="BEED">
+                    BEED
+                </option>
+
+                <option value="BSHM">
+                    BSHM
+                </option>
+
+            </select>
+
+
+            <select id="yearFilter">
+
+                <option value="">
+                    All Year Levels
+                </option>
+
+                <option value="1st Year">
+                    1st Year
+                </option>
+
+                <option value="2nd Year">
+                    2nd Year
+                </option>
+
+                <option value="3rd Year">
+                    3rd Year
+                </option>
+
+                <option value="4th Year">
+                    4th Year
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="table-section">
+
+        <h2>Student Records</h2>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Student ID</th>
+
+                        <th>Name</th>
+
+                        <th>Course</th>
+
+                        <th>Year Level</th>
+
+                        <th>Contact</th>
+
+                        <th>Academic Status</th>
+
+                        <th>Subject</th>
+
+                        <th>Units</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="studentTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

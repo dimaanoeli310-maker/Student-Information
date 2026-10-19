@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>School Website</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<section class="header">
+
+    <nav>
+
+        <a href="index.html">
+            <img src="images/klogo.png" alt="School Logo">
+        </a>
+
+        <div class="nav-links">
+
+            <ul>
+
+                <li>
+                    <a href="index.html">HOME</a>
+                </li>
+
+                <li>
+                    <a href="#about">ABOUT</a>
+                </li>
+
+                <li>
+                    <a href="#strand">STRAND</a>
+                </li>
+
+                <li>
+                    <a href="#campus">CAMPUS</a>
+                </li>
+
+                <li>
+                    <a href="#facilities">FACILITIES</a>
+                </li>
+
+                <li>
+                    <a href="students.html">STUDENTS</a>
+                </li>
+
+                <li id="loginNav">
+                    <a href="login.html">LOGIN</a>
+                </li>
+
+                <li id="logoutNav" style="display:none;">
+                    <a href="#" id="logoutButton">LOGOUT</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <div class="text-box">
+
+        <h1>Knowledge, Heart, Skills</h1>
+
+        <p>
+            A Vision of Excellence<br>
+            In a Mission of Service
+        </p>
+
+        <a href="login.html" class="hero-btn" id="heroLogin">
+            LOGIN TO STUDENT SYSTEM
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="Courses" id="about">
+
+    <h1>About Our School</h1>
+
+    <p>
+        Our school is committed to providing quality education
+        and developing students with knowledge, heart, and skills.
+    </p>
+
+    <div class="row">
+
+        <div class="course-col">
+
+            <h3>Knowledge</h3>
+
+            <p>
+                We provide students with quality education
+                and relevant knowledge for their future.
+            </p>
+
+        </div>
+
+
+        <div class="course-col">
+
+            <h3>Heart</h3>
+
+            <p>
+                We develop responsible, respectful,
+                and compassionate members of society.
+            </p>
+
+        </div>
+
+
+        <div class="course-col">
+
+            <h3>Skills</h3>
+
+            <p>
+                We prepare students with practical skills
+                needed for college and future careers.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STRAND -->
+
+<section class="Courses" id="strand">
+
+    <h1>Our Programs</h1>
+
+    <p>
+        We offer programs designed to prepare students
+        for their academic and professional goals.
+    </p>
+
+    <div class="row">
+
+        <div class="course-col">
+            <h3>BSIT</h3>
+            <p>
+                Bachelor of Science in Information Technology.
+            </p>
+        </div>
+
+        <div class="course-col">
+            <h3>BSCS</h3>
+            <p>
+                Bachelor of Science in Computer Science.
+            </p>
+        </div>
+
+        <div class="course-col">
+            <h3>BSBA</h3>
+            <p>
+                Bachelor of Science in Business Administration.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CAMPUS -->
+
+<section class="campus" id="campus">
+
+    <h1>Our Campus</h1>
+
+    <p>
+        A safe and comfortable environment where students
+        can learn and grow.
+    </p>
+
+    <div class="row">
+
+        <div class="campus-col">
+
+            <img src="images/bg.png" alt="Campus">
+
+            <div class="layer">
+                <h3>CAMPUS</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FACILITIES -->
+
+<section class="facilities" id="facilities">
+
+    <h1>Our Facilities</h1>
+
+    <p>
+        Modern facilities that support learning and student development.
+    </p>
+
+    <div class="row">
+
+        <div class="facilities-col">
+
+            <img src="images/clinic.png" alt="School Clinic">
+
+            <h3>School Clinic</h3>
+
+            <p>
+                A facility providing basic health services
+                to students and staff.
+            </p>
+
+        </div>
+
+
+        <div class="facilities-col">
+
+            <img src="images/comlab.png" alt="Computer Laboratory">
+
+            <h3>Computer Laboratory</h3>
+
+            <p>
+                A computer laboratory for programming,
+                research, and technology activities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    const loggedIn =
+        localStorage.getItem("loggedIn") === "true";
+
+    const loginNav =
+        document.getElementById("loginNav");
+
+    const logoutNav =
+        document.getElementById("logoutNav");
+
+    const heroLogin =
+        document.getElementById("heroLogin");
+
+    const logoutButton =
+        document.getElementById("logoutButton");
+
+
+    if (loggedIn) {
+
+        loginNav.style.display = "none";
+        logoutNav.style.display = "block";
+
+        heroLogin.textContent =
+            "OPEN STUDENT MANAGEMENT";
+
+        heroLogin.href =
+            "students.html";
+
+    }
+
+
+    logoutButton.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("username");
+        localStorage.removeItem("role");
+
+        window.location.href = "index.html";
+
+    });
+
+</script>
+
+
+</body>
+</html>
